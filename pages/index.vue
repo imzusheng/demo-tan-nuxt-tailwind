@@ -46,6 +46,10 @@ const setLocaleFromBrowser = () => {
 }
 
 const startRotation = () => {
+  if (!import.meta.client) {
+    return
+  }
+
   if (rotateTimer) clearInterval(rotateTimer)
 
   rotateTimer = setInterval(() => {
@@ -75,10 +79,10 @@ watch(locale, (value) => {
   if (import.meta.client) {
     window.localStorage.setItem('velvet-locale', value)
     document.documentElement.lang = value
+    startRotation()
   }
 
   activeDemoId.value = current.value.demoItems[0].id
-  startRotation()
 }, { immediate: true })
 
 onMounted(() => {
