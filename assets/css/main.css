@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --bg: #000000;
+    --panel: #151515;
+    --panel-soft: #1f1f1f;
+    --border: rgba(255, 255, 255, 0.1);
+    --text-soft: #9aa4b3;
+    --brand: #4e40f3;
+    --brand-strong: #6d3dff;
+    --rose: #f0568d;
+    --gold: #f2b161;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--bg);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 50% 230px, rgba(76, 25, 179, 0.34), transparent 420px),
+      linear-gradient(180deg, #000 0%, #000 100%);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+  }
+
+  ::selection {
+    background: rgba(78, 64, 243, 0.35);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-[1400px] px-4;
+  }
+
+  .muted-text {
+    color: var(--text-soft);
+  }
+
+  .soft-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+  }
+
+  .soft-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .purple-glow::before {
+    content: '';
+    position: absolute;
+    inset: -120px auto auto 50%;
+    width: 920px;
+    height: 540px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(74, 25, 185, 0.32), rgba(74, 25, 185, 0.1) 45%, transparent 70%);
+    pointer-events: none;
+    filter: blur(24px);
+  }
+}
